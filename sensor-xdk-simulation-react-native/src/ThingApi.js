@@ -16,8 +16,8 @@ export const updateFeatureProperty = (featureId, data) => {
     headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'x-cr-api-token': '23c8f9622bac48b7a8c4ae658c5a6a91',
-      'Authorization': 'Basic T1UzM0NLSkVTSVxqdXN0aW4xOkJvc2NoQDEyMzQ='
+      'x-cr-api-token': 'YOUR TOKEN',
+      'Authorization': 'YOUR BASIC AUTH'
     },
     body: JSON.stringify(data)
   }).then(response => console.log('Success:', response))
