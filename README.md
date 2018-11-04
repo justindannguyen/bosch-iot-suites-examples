@@ -3,8 +3,10 @@ Example of using Bosch IoT Suites
 
 ## XDK Simulation - Bosch IOT Things
 Android applications using react native, collect sensors and sent to Bosch IoT Things.
-It can also works with ```inventory-browser```
-[https://github.com/bsinno/iot-things-examples/tree/master/inventory-browser]
+It can also works with [inventory-browser](https://github.com/bsinno/iot-things-examples/tree/master/inventory-browser)
+
+## Hub Mqtt Telemetry - Bosch IoT Hub
+Java application to collect Memory usage on PC, then sent to IoT Hub 
 
 ## Licenses
 
