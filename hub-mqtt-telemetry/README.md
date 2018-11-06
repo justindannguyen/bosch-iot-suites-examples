@@ -1,17 +1,22 @@
-# bosch-iot-suites-examples
-Example of using Bosch IoT Suites
+# Bosch IoT Suite Example
 
-## XDK Simulation - Bosch IOT Things
-Android applications using react native, collect sensors and sent to Bosch IoT Things.
-It can also works with [inventory-browser](https://github.com/bsinno/iot-things-examples/tree/master/inventory-browser)
+This example will have serveral parts to show you how to use Bosch IoT Suite.
 
-## Hub Mqtt Telemetry
-* Data ingestion platform using Bosch IoT Hub
-* Digital twin using Bosch IoT Things
+**Part1** will show you how to use Bosch IoT Hub as data ingestion platform for your IoT Application.
+Telemetry data (memory usages) will be collected from device software then transfer to Hub using secured MQTT.
+It also show how to use Eclipse Vorto and generate device software based on your referred languages.
+
+**Part2** will show you how to use Bosch IoT Things to manage your digital twin as well as establishing the connection with Bosch IoT Hub.
+The referenced marterials e.g. policy json can be found directly on project folder.
+
+## References
+
+- Eclipse Vorto: http://vorto.eclipse.org/#/
+- Youtube Video - Part1: https://youtu.be/j_znt1jeY-c
+- Youtube Video - Part2: https://youtu.be/aVfFBM7dvYE
+- Website: https://justindannguyen.github.io
 
 ## Licenses
-
-The MIT License
 
 Copyright (c) 2018 Justin Nguyen
 

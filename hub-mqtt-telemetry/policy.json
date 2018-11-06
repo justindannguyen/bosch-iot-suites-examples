@@ -1,0 +1,17 @@
+{
+  "subjects": {
+    "integration:5134af6c-f6d8-42d8-bbf4-83f836433f80:hub": {
+      "type": "iot-things-clientid"
+    }
+  },
+  "resources": {
+    "thing:/features": {
+      "grant": ["WRITE"],
+      "revoke": []
+    },
+    "message:/": {
+      "grant": ["WRITE"],
+      "revoke": []
+    }
+  }
+}
