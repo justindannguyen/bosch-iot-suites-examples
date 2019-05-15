@@ -1,22 +1,19 @@
-# bosch-iot-suites-examples
-Example of using Bosch IoT Suites along with ecosystem products
+# Bosch XDK and Eclipse Mita Example
 
-## XDK Simulation - Bosch IOT Things
-Android applications using react native, collect sensors and sent to Bosch IoT Things.
-It can also works with [inventory-browser](https://github.com/bsinno/iot-things-examples/tree/master/inventory-browser)
-
-## Hub Mqtt Telemetry
-* Data ingestion platform using Bosch IoT Hub
-* Digital twin using Bosch IoT Things
-
-## mita-xdk-app
+Show basic example on how to use Ecipse Mita to develop Bosch XDK applications
 * Getting started with [Eclipse Mita, XDK](https://www.eclipse.org/mita/platforms/xdk110/)
 * GPOI events
 * Temperature, Humidity sensors
 
-## Licenses
+## References
 
-The MIT License
+- Eclipse Mita: https://www.eclipse.org/mita/
+- XDK Workbench: https://xdk.bosch-connectivity.com/software-downloads
+- Bosch IoT Marketplace: https://rb-iot-marketplace.bosch.com/
+- Youtube Video: https://youtu.be/QFDZ3632KTg
+- Website: https://justindannguyen.github.io
+
+## Licenses
 
 Copyright (c) 2018 Justin Nguyen
 

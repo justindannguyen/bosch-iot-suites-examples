@@ -1,0 +1,21 @@
+/**
+ * Welcome to Eclipse Mita.
+ *
+ * Not sure what to do now?
+ * Check out the "Getting started" guide on https://mita.io.
+ */
+
+package main;
+import platforms.xdk110;
+
+every button_one.pressed {
+	print("Hello World\n");
+}
+
+every 2 seconds {
+	var humidityValue = environment.humidity.read();
+	var temperature = environment.temperature.read();
+	var message = "Justin room sensors, Temp: ";
+	message += `${temperature}, Humidity: ${humidityValue}`;
+	println(message);
+}
