@@ -1,0 +1,30 @@
+/**
+ * Welcome to Eclipse Mita.
+ *
+ * Not sure what to do now?
+ * Check out the "Getting started" guide on https://mita.io.
+ */
+
+package main;
+import platforms.xdk110;
+
+setup net: WLAN { 
+	ssid = "P2";
+  	authentication = Personal(psk = "ade353647cf6");
+}
+
+setup backend: MQTT {
+  transport = net;
+  url = "mqtt://3.0.61.168";
+  clientId = "XDK42";
+
+  var telemetry = topic("telemetry");
+}
+
+fn getJsonData() {
+	return `{"temp":${environment.temperature.read()}}`;
+}
+
+every 1000 milliseconds {
+  backend.telemetry.write(getJsonData());
+}

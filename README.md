@@ -14,6 +14,11 @@ It can also works with [inventory-browser](https://github.com/bsinno/iot-things-
 * GPOI events
 * Temperature, Humidity sensors
 
+## xdk-mqtt-app
+* Getting started with [Eclipse Mita, XDK](https://www.eclipse.org/mita/platforms/xdk110/)
+* WLAN, MQTT
+* Temperature sensors
+
 ## Licenses
 
 The MIT License

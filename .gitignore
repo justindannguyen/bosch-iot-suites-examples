@@ -1,3 +1,5 @@
 hub-mqtt-telemetry/.classpath
 hub-mqtt-telemetry/.project
 hub-mqtt-telemetry/.settings/
+xdk-mqtt-app/src-gen/
+xdk-mqtt-app/.settings/
