@@ -8,6 +8,10 @@
 package main;
 import platforms.xdk110;
 
+setup XDK110 {
+  applicationName = "XDK_Mqtt";
+}
+
 setup net: WLAN { 
 	ssid = "P2";
   	authentication = Personal(psk = "ade353647cf6");
@@ -15,16 +19,23 @@ setup net: WLAN {
 
 setup backend: MQTT {
   transport = net;
-  url = "mqtt://3.0.61.168";
-  clientId = "XDK42";
+  url = "mqtt://52.221.181.230:1883";
+  clientId = "XDK42_1";
 
   var telemetry = topic("telemetry");
 }
 
 fn getJsonData() {
-	return `{"temp":${environment.temperature.read()}}`;
+	var celcius = environment.temperature.read() / 1000;
+	var humidity = environment.humidity.read();
+	var pressure = environment.pressure.read();
+	var light = light.intensity.read() / 1000;
+
+	return `{"temperature": ${celcius}, "humidity": ${humidity}, "pressure":${pressure}, "lux": ${light}}`;
 }
 
-every 1000 milliseconds {
-  backend.telemetry.write(getJsonData());
+every 2 seconds {
+  var jsonData = getJsonData();
+  backend.telemetry.write(jsonData);
+  println(`Sent ${jsonData}`);
 }
