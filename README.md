@@ -14,10 +14,25 @@ It can also works with [inventory-browser](https://github.com/bsinno/iot-things-
 * GPOI events
 * Temperature, Humidity sensors
 
+[![mita-xdk-app](https://img.youtube.com/vi/QFDZ3632KTg/0.jpg)](https://youtu.be/QFDZ3632KTg "mita-xdk-app")
+
 ## xdk-mqtt-app
 * Getting started with [Eclipse Mita, XDK](https://www.eclipse.org/mita/platforms/xdk110/)
 * WLAN, MQTT
 * Temperature sensors
+
+[![xdk-mqtt-app](https://img.youtube.com/vi/-m4rlpJpMPs/0.jpg)](https://youtu.be/-m4rlpJpMPs "xdk-mqtt-app")
+
+## xdk-webapp
+* Visualize Bosch XDK sensors using Web browser via MQTT 
+* ReactJS, MQTT over websocket
+
+[![xdk-webapp](https://img.youtube.com/vi/xqz0AAdxy4o/0.jpg)](https://youtu.be/xqz0AAdxy4o "xdk-webapp")
+
+## xdk-api
+* Remote command and control to Bosch Sensor XDK via REST Api
+
+[![xdk-api](https://img.youtube.com/vi/_0ViUpj32lA/0.jpg)](https://youtu.be/_0ViUpj32lA "xdk-api")
 
 ## Licenses
 
