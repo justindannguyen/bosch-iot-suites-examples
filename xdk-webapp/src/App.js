@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
-import './App.css';
-import Chip from '@material-ui/core/Chip';
-import Avatar from '@material-ui/core/Avatar';
+import { withStyles } from '@material-ui/core/styles';
+
+import Content from './Content'
+import Header from './Header'
+
 import mqtt from 'mqtt'
+
+const styles = theme => ({
+  root: {
+    flexGrow: 1,
+  }
+});
 
 class App extends Component {
   constructor(props) {
@@ -11,7 +19,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.client = mqtt.connect('ws://52.221.181.230:15675/ws')
+    this.client = mqtt.connect('ws://18.140.241.253:15675/ws')
     this.client.on("connect", () => {
       console.log("connected");
       this.client.subscribe("telemetry");
@@ -22,23 +30,46 @@ class App extends Component {
   }
 
   handleJsonMessage = (json) => {
-    this.setState({ ...json })
+    const temperatures = this.state.temperatures || []
+    const humidities = this.state.humidities || []
+    const lights = this.state.lights || []
+    const pressures = this.state.pressures || []
+    const time = Date.now();
+    temperatures.push([time, json.temperature || 0])
+    humidities.push([time, json.humidity || 0])
+    lights.push([time, json.lux || 0])
+    pressures.push([time, json.pressure || 0])
+    this.setState({
+      data: { ...json },
+      temperatures,
+      humidities,
+      pressures,
+      lights
+    })
   }
 
   componentWillUnmount() {
-    if (this.client)
+    if (this.client) {
       this.client.end()
+    }
   }
 
   render() {
+    const { classes } = this.props;
+    const data = this.state.data || {}
+    const temperatures = this.state.temperatures || []
+    const humidities = this.state.humidities || []
+    const lights = this.state.lights || []
+    const pressures = this.state.pressures || []
     return (
-      <div className="App" >
-        <Chip avatar={<Avatar>C</Avatar>} label={this.state.temperature} />
-        <Chip avatar={<Avatar>RH</Avatar>} label={this.state.humidity} />
-        <Chip avatar={<Avatar>P</Avatar>} label={this.state.pressure} />
-        <Chip avatar={<Avatar>Lx</Avatar>} label={this.state.lux} />
+      <div className={classes.root}>
+        <Header data={data} />
+        <Content temperatures={temperatures}
+          lights={lights}
+          pressures={pressures}
+          humidities={humidities} />
       </div>
     );
   }
 }
-export default App;
+export default withStyles(styles)(App);

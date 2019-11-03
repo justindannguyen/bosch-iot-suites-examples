@@ -46,8 +46,9 @@ fn getJsonData() {
 	var humidity = environment.humidity.read();
 	var pressure = environment.pressure.read();
 	var light = light.intensity.read() / 1000;
+	var lightStatus = lighting.homeLight.read();
 
-	return `{"temperature": ${celcius}, "humidity": ${humidity}, "pressure":${pressure}, "lux": ${light}}`;
+	return `{"temperature": ${celcius}, "humidity": ${humidity}, "pressure":${pressure}, "lux": ${light}, "lightStatus": ${lightStatus}}`;
 }
 
 every 2 seconds {

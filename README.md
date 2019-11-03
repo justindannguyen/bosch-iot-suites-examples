@@ -10,6 +10,7 @@ It can also works with [inventory-browser](https://github.com/bsinno/iot-things-
 * Digital twin using Bosch IoT Things
 
 ## mita-xdk-app
+Learn how to program Bosch XDK using Eclipse Mita, a new programming language that is focused on making Internet-Of-Things things easier to program, especially for developers without an embedded development background. It aims to increase programmer productivity, enables fast exploration of use-cases and tries to make you feel right at home on an embedded device. 
 * Getting started with [Eclipse Mita, XDK](https://www.eclipse.org/mita/platforms/xdk110/)
 * GPOI events
 * Temperature, Humidity sensors
@@ -17,6 +18,7 @@ It can also works with [inventory-browser](https://github.com/bsinno/iot-things-
 [![mita-xdk-app](https://img.youtube.com/vi/QFDZ3632KTg/0.jpg)](https://youtu.be/QFDZ3632KTg "mita-xdk-app")
 
 ## xdk-mqtt-app
+Learn how to program Bosch XDK to send MQTT message using Eclipse Mita
 * Getting started with [Eclipse Mita, XDK](https://www.eclipse.org/mita/platforms/xdk110/)
 * WLAN, MQTT
 * Temperature sensors
