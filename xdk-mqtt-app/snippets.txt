@@ -1,0 +1,34 @@
+static char const *content_ptr;
+static unsigned int contentLength = 0;
+
+static retcode_t getClientResponseCallback(HttpSession_T *httpSession, Msg_T *msg_ptr, retcode_t status);
+
+//read
+char content[contentLength + 1];
+strncpy(content, content_ptr, contentLength);
+content[contentLength] = 0;
+*result = content;
+printf("Content %s\r\n", content);
+
+// callback
+static retcode_t getClientResponseCallback(HttpSession_T *httpSession,
+		Msg_T *msg_ptr, retcode_t status) {
+	responseRetcode = status;
+	responseStatusCode = HttpMsg_getStatusCode(msg_ptr);
+
+	(void) (httpSession);
+
+	if (status == RC_OK && msg_ptr != NULL) {
+		Http_StatusCode_T statusCode = HttpMsg_getStatusCode(msg_ptr);
+		char const *contentType = HttpMsg_getContentType(msg_ptr);
+
+		contentLength = 0;
+		HttpMsg_getContent(msg_ptr, &content_ptr, &contentLength);
+		printf("HTTP RESPONSE: %d [%s]\r\n", statusCode, contentType);
+	} else {
+		printf("Failed to receive HTTP response!\r\n");
+	}
+
+	xSemaphoreGive(responseReceivedSemaphore);
+	return RC_OK;
+}

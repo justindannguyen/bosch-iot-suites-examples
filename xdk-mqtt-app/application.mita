@@ -8,18 +8,34 @@
 package main;
 import platforms.xdk110;
 
+// 0 as equal
+// positive or negative as inequal
+native unchecked fn strcmp(str1 : string, str2: string) : int32
+	header "string.h";
+
 setup XDK110 {
   applicationName = "XDK_Mqtt";
 }
 
 setup net: WLAN { 
-	ssid = "P2";
-  	authentication = Personal(psk = "ade353647cf6");
+	ssid = "TBD";
+  authentication = Personal(psk = "TBD");
 }
 
-setup backend: MQTT {
+setup lighting : LED {
+	var homeLight = light_up(Orange);
+}
+
+setup api: HttpRestClient {
   transport = net;
-  url = "mqtt://52.221.181.230:1883";
+  endpointBase = "http://192.168.0.103:8080";
+
+  var lightStatus = resource("/xdk/lightStatus");
+}
+
+setup mqtt: MQTT {
+  transport = net;
+  url = "mqtt://18.140.241.253:1883";
   clientId = "XDK42_1";
 
   var telemetry = topic("telemetry");
@@ -36,6 +52,22 @@ fn getJsonData() {
 
 every 2 seconds {
   var jsonData = getJsonData();
-  backend.telemetry.write(jsonData);
+  mqtt.telemetry.write(jsonData);
   println(`Sent ${jsonData}`);
+}
+
+every button_one.released {
+	switchLightStatus();
+}
+
+fn switchLightStatus() {
+	var lightStatus = lighting.homeLight.read();
+	lighting.homeLight.write(!lightStatus);
+}
+
+every 5 seconds {
+	if (strcmp(api.lightStatus.read(), "1") == 0) {
+		println("Receive the command from server to switch the light status");
+		switchLightStatus();
+	}
 }
