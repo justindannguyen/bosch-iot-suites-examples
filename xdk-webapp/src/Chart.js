@@ -2,13 +2,13 @@
  * Copyright (C)2019, Justin Nguyen
  */
 import React from 'react';
-import * as Highcharts from 'highcharts';
+import Highcharts from 'highcharts/highstock'
 import HighchartsReact from 'highcharts-react-official';
 
 export const Chart = props => {
   const options = {
     chart: {
-      height: 300,
+      height: 320,
     },
     title: {
       text: props.chartTitle
@@ -19,6 +19,15 @@ export const Chart = props => {
     time: {
       useUTC: false
     },
+    rangeSelector: {
+      enabled: false
+    },
+    navigator: {
+      enabled: false
+    },
+    scrollbar: {
+      enabled: false
+    },
     series: [{
       showInLegend: false,
       data: props.data
@@ -28,6 +37,7 @@ export const Chart = props => {
   return (<div>
     <HighchartsReact
       highcharts={Highcharts}
+      constructorType={'stockChart'}
       options={options}
     />
   </div>)

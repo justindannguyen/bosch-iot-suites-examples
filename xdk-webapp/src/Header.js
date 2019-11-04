@@ -8,7 +8,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import Chip from '@material-ui/core/Chip';
 import Avatar from '@material-ui/core/Avatar';
 import WbIncandescentOutlinedIcon from '@material-ui/icons/WbIncandescentOutlined';
@@ -17,17 +16,20 @@ import Logo from './logo.png';
 
 const styles = theme => ({
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(1),
   },
   title: {
     flexGrow: 1,
+
   },
   chip: {
     width: 80,
     margin: 2
   },
   lightStatus: {
-    marginLeft: 80,
+    [theme.breakpoints.up('md')]: {
+      marginLeft: 80
+    },
     fontSize: 60
   }
 });
@@ -38,7 +40,6 @@ class Header extends Component {
     super(props)
     this.state = {}
   }
-
 
   onButtonClick = () => {
     this.switchLightStatus()
@@ -55,7 +56,8 @@ class Header extends Component {
 
   componentDidUpdate() {
     const { lux, lightStatus } = this.props.data
-    if (lux <= 20 && lightStatus === 0) {
+
+    if (lux <= 10 && lightStatus === 0) {
       // Light is off and too dark
       this.switchLightStatus();
     } else if (lux >= 100 && lightStatus === 1) {
@@ -70,10 +72,10 @@ class Header extends Component {
     const lightColor = lightStatus === 1 ? "secondary" : "disabled";
     const buttonText = lightStatus === 1 ? "Light OFF" : "Light ON";
     return (
-      <AppBar position="static">
+      <AppBar>
         <Toolbar>
           <IconButton href="http://justindannguyen.com" edge="start" className={classes.menuButton}>
-            <img src={Logo} style={{ width: 40 }} />
+            <img alt='Logo' src={Logo} style={{ width: 40 }} />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             Bosch XDK

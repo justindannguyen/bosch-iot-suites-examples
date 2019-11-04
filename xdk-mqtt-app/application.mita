@@ -28,7 +28,7 @@ setup lighting : LED {
 
 setup api: HttpRestClient {
   transport = net;
-  endpointBase = "http://192.168.0.103:8080";
+  endpointBase = "http://18.140.241.253";
 
   var lightStatus = resource("/xdk/lightStatus");
 }

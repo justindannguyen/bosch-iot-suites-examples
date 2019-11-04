@@ -35,3 +35,7 @@ export const Content = props => {
 }
 
 export default withStyles(styles)(Content);
+
+Content.defaultProps = {
+  data: {}
+}
