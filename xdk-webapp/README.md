@@ -1,6 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Pictures
+### Architecture
 ![Architect Diagram](Diagram.png)
+
+### Sample GUI
+![Architect Diagram](Demo.png)
 
 ## Available Scripts
 

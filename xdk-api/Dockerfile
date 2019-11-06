@@ -4,4 +4,4 @@ EXPOSE 80
 ENTRYPOINT ["java", "-jar", "/usr/share/justin.jar"]
 
 ARG JAR_FILE
-ADD target/xdk-api-0.0.1-SNAPSHOT.jar /usr/share/justin.jar
+ADD target/xdk-api-1.0.0.jar /usr/share/justin.jar
